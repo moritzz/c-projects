@@ -1,0 +1,56 @@
+title: Projects
+
+pages: false
+
+fields:
+  title:
+    label: Title
+    type:  text
+
+  intro:
+    label: Intro
+    type:  textarea
+    
+  projects:
+    label: Projects
+    type: structure
+    entry: >
+      {{date}} - {{date_to}} : <strong>{{title}}</strong><br />
+      {{summary}}
+    fields:
+      title:
+        label: Title
+        type: text
+        required: true
+      category:
+        label: Category
+        type: select
+        options:
+          prose: Prosa
+          "stage works": Theater
+          "music theatre": Musiktheater
+          "radio play": Hörspiel
+          "stage": Bühne
+          "roles played": Engagements
+          "film": Film
+          "recordings": Tonaufnahmen
+          "readings": Lesung
+          "word and image": Text und Bild
+          "dramatisations": Dramatisierungen
+
+      where:
+        label: Where
+        type: text
+      date_span: 
+        extends: date_span
+        fields:
+          date_from:
+            required: false
+      summary:
+        label: Summary
+        type: textarea
+        required: true
+  
+  text:
+    label: Text
+    type:  textarea
