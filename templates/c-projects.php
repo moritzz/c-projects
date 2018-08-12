@@ -18,8 +18,14 @@
         <?php else: ?>
           <h2>Latest Projects</h2>
         <?php endif; ?>
-        <?php $field = $page->projects(); ?>
-        <?php foreach($field->toStructure()->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $projects): ?>
+        <?php $field = $page->projects()->toStructure()->sortBy('date_from', 'asc', 'date_to', 'asc')->flip(); ?>
+        <?php $groups = $page->projects()->toStructure()->groupBy('category'); ?>
+        <!-- <ul>
+        <?php foreach ($groups as $group => $items): ?>
+          <li><?= $group; ?></li>
+        <?php endforeach; ?>
+        </ul> -->
+        <?php foreach($field as $projects): ?>
           <h3><?= datespan($projects->date_from(), $projects->date_to()); ?>: <?= $projects->title()->html(); ?></h3>
           <?= $projects->summary()->kirbytext(); ?>
         <?php endforeach; ?>
