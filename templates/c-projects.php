@@ -10,6 +10,8 @@
       <hr />
     </header>
     
+    <pre><?php $page->categories(); ?></pre>
+    
     <section class="news-section">
       
       <div class="text wrap">

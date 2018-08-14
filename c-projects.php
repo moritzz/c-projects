@@ -1,11 +1,4 @@
 <?php
-  
-// ===================
-// = Model Registery =
-// ===================
-
-require_once(__DIR__ . '/models/c-projects.php');
-// $kirby->set('page::model', 'c-projects', 'CProjectsPage');
 
 // =======================
 // = Component Registery =
@@ -14,7 +7,14 @@ require_once(__DIR__ . '/models/c-projects.php');
 $kirby->set('blueprint', 'c-projects', __DIR__ . '/blueprints/c-projects.yml');
 $kirby->set('template', 'c-projects', __DIR__ . '/templates/c-projects.php');
 $kirby->set('controller', 'c-projects', __DIR__ . '/controllers/c-projects.php');
-  
+
+// ===================
+// = Model Registery =
+// ===================
+
+require_once(__DIR__ . '/models/c-projects.php');
+$kirby->set('page::model', 'c-projects', 'CProjectsPage');
+
 // ===========
 // = Helpers =
 // ===========
