@@ -16,8 +16,9 @@ if (!class_exists('ContaineristPage')) {
 class CProjectsPage extends ContaineristPage {
   
   public function categories() {
-    // $yaml = yaml::read($kirby->get('blueprint', 'c-projects'));
-    // var_dump($yaml);
+    $blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
+    $categories = $blueprint['fields']['projects']['fields']['category']['options'];
+    var_dump($categories);
   }
   
 }
