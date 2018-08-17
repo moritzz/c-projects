@@ -19,17 +19,17 @@ class CProjectsPage extends ContaineristPage {
   
   static function categories() {
     $blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
-    $categories_raw = $blueprint['fields']['projects']['fields']['category']['options'];
-    $categories_en = array_keys($categories_raw);
-    array_walk($categories_en, function (&$item, $key) {
-      $item = ucfirst($item);
-    });
-    $categories_data = new Data([
-      'en'=> $categories_en,
-      'de' => array_values($categories_raw),
-    ]);
-    $categories = new Structure($categories_data);
-    var_dump($categories);
+    $categories_blueprint = $blueprint['fields']['projects']['fields']['category']['options'];
+    $categories_table = [];
+    foreach ($categories_blueprint as $english => $german) {
+      array_push($categories_table, [
+        'option' => $english,
+        'en' => titleCase($english),
+        'de' => $german,
+      ]);
+    }
+    $categories_field = new Field($page, 'categories', yaml::encode($categories_table));
+    return $categories_field;
   }
   
 }
