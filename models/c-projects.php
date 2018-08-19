@@ -16,20 +16,26 @@ if (!class_exists('ContaineristPage')) {
 }
 
 class CProjectsPage extends ContaineristPage {
+
+  private $blueprint = [];
+  private $categories = [];
   
-  static function categories() {
-    $blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
-    $categories_blueprint = $blueprint['fields']['projects']['fields']['category']['options'];
-    $categories_table = [];
-    foreach ($categories_blueprint as $english => $german) {
-      array_push($categories_table, [
-        'option' => $english,
-        'en' => titleCase($english),
-        'de' => $german,
-      ]);
+  public function categories() {
+    if (count($this->$categories) > 0) {
+      $this->$blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
+      $categories_table = [];
+      foreach ($this->$blueprint['fields']['projects']['fields']['category']['options'] as $english => $german) {
+        array_push($categories_table, [
+          'option' => $english,
+          'en' => titleCase($english),
+          'de' => $german,
+        ]);
+      }
+      $this->$categories = new Field($this, 'categories', yaml::encode($categories_table));
+      return $this->$categories;
+    } else {
+      return $this->$categories;
     }
-    $categories_field = new Field($page, 'categories', yaml::encode($categories_table));
-    return $categories_field;
   }
   
 }

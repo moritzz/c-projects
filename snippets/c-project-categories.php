@@ -7,11 +7,13 @@
           
           $language = $site->language()->code();
           
-          foreach($page->categories()->toStructure() as $category) {
-            
-            $option = $category->option();
-            echo $category->$language()->link($page->url() . '?category=' . urlencode($option), ['class' => 'selector' . ($option == $selector) ? ' selected' : '']) . ' ';
-            
+          if (isset($page) && $page->categories()->isNotEmpty()) {
+            foreach($page->categories()->toStructure() as $category) {
+              
+              $option = $category->option();
+              echo $category->$language()->link($page->url() . '?category=' . urlencode($option), ['class' => 'selector' . ($option == $selector) ? ' selected' : '']) . ' ';
+              
+            }            
           }
           
         ?>
