@@ -7,7 +7,7 @@
           
           $language = $site->language()->code();
           
-          if (isset($page) && $page->categories()->isNotEmpty()) {
+          if ($page->categories()->isNotEmpty()) {
             foreach($page->categories()->toStructure() as $category) {
               
               $option = $category->option();
