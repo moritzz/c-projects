@@ -8,7 +8,7 @@
         <?php endif; ?>
         <?php
           $selector = $kirby->request()->get('category');
-          $projects = (is_null($selector)) ? $page->projects()->toStructure() : $page->projects()->toStructure()->filterBy('category', urldecode($selector));
+          $projects = (is_null($selector) || urldecode($selector) == '%all%') ? $page->projects()->toStructure() : $page->projects()->toStructure()->filterBy('category', urldecode($selector));
           
           if ($projects->count() > 0):
             foreach($projects->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $project) {

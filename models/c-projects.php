@@ -17,25 +17,33 @@ if (!class_exists('ContaineristPage')) {
 
 class CProjectsPage extends ContaineristPage {
 
-  private $blueprint = [];
-  private $categories = [];
+  protected $blueprint;
+  protected $categories;
   
-  public function categories() {
-    if (count($this->$categories) > 0) {
-      $this->$blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
-      $categories_table = [];
-      foreach ($this->$blueprint['fields']['projects']['fields']['category']['options'] as $english => $german) {
+  public function __construct($parent, $dirname){
+    $this->blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
+    if (isset($this->blueprint['fields']['projects']['fields']['category']['options']) && count($this->blueprint['fields']['projects']['fields']['category']['options']) > 0) {
+      $categories_table = [[
+          'option' => '%all%',
+          'en' => 'All',
+          'de' => 'Alle',
+        ]];
+      foreach ($this->blueprint['fields']['projects']['fields']['category']['options'] as $english => $german) {
         array_push($categories_table, [
           'option' => $english,
           'en' => titleCase($english),
           'de' => $german,
         ]);
       }
-      $this->$categories = new Field($this, 'categories', yaml::encode($categories_table));
-      return $this->$categories;
+      $this->categories = new Field($this, 'categories', yaml::encode($categories_table));
     } else {
-      return $this->$categories;
+      $this->categories = new Field($this, 'categories', []);
     }
+    parent::__construct($parent, $dirname);
+  }
+  
+  public function categories() {
+    return $this->categories;
   }
   
 }
