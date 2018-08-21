@@ -11,7 +11,7 @@
             foreach($page->categories()->toStructure() as $category) {
               
               $option = $category->option();
-              echo $category->$language()->link($page->url() . '?category=' . urlencode($option), ['class' => 'selector' . ($option == $selector) ? ' selected' : '']) . ' ';
+              echo $category->$language()->link($page->url() . '?category=' . urlencode($option), ['class' => ('selector' . (($option == $selector) ? ' is-active' : ''))]) . ' ';
               
             }            
           }
