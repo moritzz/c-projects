@@ -1,0 +1,14 @@
+label: Category
+type: select
+options:
+  prose: Prosa
+  "stage works": Theater
+  "music theatre": Musiktheater
+  "radio play": Hörspiel
+  "stage": Bühne
+  "roles played": Engagements
+  "film": Film
+  "recordings": Tonaufnahmen
+  "readings": Lesung
+  "word and image": Text und Bild
+  "dramatisations": Dramatisierungen

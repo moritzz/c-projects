@@ -1,6 +1,8 @@
 title: Projects
 
-pages: false
+pages:
+  template: c-project
+  num: zero
 
 fields:
   title:
@@ -23,29 +25,12 @@ fields:
         type: text
         required: true
       category:
-        label: Category
-        type: select
-        options:
-          prose: Prosa
-          "stage works": Theater
-          "music theatre": Musiktheater
-          "radio play": Hörspiel
-          "stage": Bühne
-          "roles played": Engagements
-          "film": Film
-          "recordings": Tonaufnahmen
-          "readings": Lesung
-          "word and image": Text und Bild
-          "dramatisations": Dramatisierungen
-
+        extends: category
       where:
         label: Where
         type: text
       date_span: 
         extends: date_span
-        fields:
-          date_from:
-            required: false
       summary:
         label: Summary
         type: textarea

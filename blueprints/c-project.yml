@@ -1,0 +1,31 @@
+title: Projects
+
+pages: false
+
+fields:
+  title:
+    label: Title
+    type:  text
+    
+  category:
+    extends: category
+
+  where:
+    label: Where
+    type: text
+    
+  date_span: 
+    type: group
+    fields:
+      date_from:
+        label: From
+        type: date
+        required: true
+      date_to:
+        label: To
+        type: date
+        help: Datumsspannen von unter einem Monat werden als DD.MM.YYYY - DD.MM.YYYY ausgegeben, darüber als MMMM YYYY - MMMM YYYYY, von exakt einem Jahr als YYYY, daruber als YYYY - YYYYY.
+    
+  label: Summary
+    type: textarea
+    required: true

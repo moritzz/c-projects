@@ -18,7 +18,6 @@ if (!class_exists('ContaineristPage')) {
 
 class CProjectsPage extends ContaineristPage {
 
-  protected $blueprint;
   protected $categories;
   protected $categories_table;
   
@@ -28,7 +27,9 @@ class CProjectsPage extends ContaineristPage {
   // Load blueprint definition into cache and initiate pseudo field data
   
   public function __construct($parent, $dirname){
-    $this->blueprint = data::read(kirby()->get('blueprint', 'c-projects'));
+    // Load fully extended blueprint
+    $this->setBlueprint('c-projects');
+    // Process category field
     if (isset($this->blueprint['fields']['projects']['fields']['category']['options']) && count($this->blueprint['fields']['projects']['fields']['category']['options']) > 0) {
       $this->categories_table['%all%'] = [
           'en' => 'All',
@@ -111,7 +112,11 @@ class CProjectsPage extends ContaineristPage {
       case 'projects':
         return $this->getProjects();
       default:
-        return parent::__call($key, $arguments);
+        if (method_exists($this, $key)) {
+          call(array($this, a::merge($key, $arguments)));
+        } else {
+          return parent::__call($key, $arguments);
+        }
     }
   }
   
