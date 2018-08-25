@@ -82,9 +82,13 @@ class CProjectsPage extends ContaineristPage {
     
   }
   
-  private function getProjects($type = 'structure') {
+  private function getProjects() {
     
-    $adapter = static::adapter($type);
+    if ($this->content()->adapter()->isNotEmpty()) {
+      $adapter = static::adapter($this->content()->adapter()->value);
+    } else {
+      $adapter = static::adapter('structure');
+    }
 
     if(isset($adapter['get'])) {
       return call($adapter['get'], $this);
@@ -99,18 +103,22 @@ class CProjectsPage extends ContaineristPage {
   // = Projects pseudo fields =
   // ==========================
   
+  // Nota bene: Calling standard page methods might be blocked (WIP)
+  
   public function __call($key, $arguments = []) {
     switch ($key) {
       case 'categories':
         return $this->categories;
+      case 'projects':
+        return $this->getProjects();
+      case 'adapter':
+        return new Field ($this, 'adapter', ($this->content()->has('adapter')) ? $this->adapter()->value : 'structure');
       case 't':
         if (isset($arguments[0])) {
           return $this->translate($arguments[0]);
         } else {
           return new Field ($this, 'category', '<!-- No key given for category name -->');
         }
-      case 'projects':
-        return $this->getProjects();
       default:
         if (method_exists($this, $key)) {
           call(array($this, a::merge($key, $arguments)));
@@ -128,5 +136,13 @@ CProjectsPage::$adapters['structure'] = array(
     if ($page->content()->has('projects')) {
       return $page->content()->get('projects')->toStructure();
     }
+  },
+);
+
+
+CProjectsPage::$adapters['children'] = array(
+  'type' => array('children'),
+  'get' => function($page) {
+    return $page->children()->filterBy('template', 'c-project')->visible();
   },
 );

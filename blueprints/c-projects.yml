@@ -13,6 +13,15 @@ fields:
     label: Intro
     type:  textarea
     
+  adapter:
+    label: Project origin
+    type: select
+    required: true
+    options:
+      structure: "List below"
+      children: "Child pages"
+    default: structure
+      
   projects:
     label: Projects
     type: structure
