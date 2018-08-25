@@ -15,16 +15,7 @@ fields:
     type: text
     
   date_span: 
-    type: group
-    fields:
-      date_from:
-        label: From
-        type: date
-        required: true
-      date_to:
-        label: To
-        type: date
-        help: Datumsspannen von unter einem Monat werden als DD.MM.YYYY - DD.MM.YYYY ausgegeben, darüber als MMMM YYYY - MMMM YYYYY, von exakt einem Jahr als YYYY, daruber als YYYY - YYYYY.
+    extend: date_span
     
   label: Summary
     type: textarea
