@@ -111,8 +111,6 @@ class CProjectsPage extends ContaineristPage {
         return $this->categories;
       case 'projects':
         return $this->getProjects();
-      case 'adapter':
-        return new Field ($this, 'adapter', ($this->content()->has('adapter')) ? $this->adapter()->value : 'structure');
       case 't':
         if (isset($arguments[0])) {
           return $this->translate($arguments[0]);

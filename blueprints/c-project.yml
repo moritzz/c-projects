@@ -1,4 +1,4 @@
-title: Projects
+title: Project
 
 pages: false
 
@@ -15,8 +15,8 @@ fields:
     type: text
     
   date_span: 
-    extend: date_span
+    extends: date_span
     
-  label: Summary
+  summary: Summary
     type: textarea
     required: true
