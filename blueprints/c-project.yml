@@ -17,6 +17,7 @@ fields:
   date_span: 
     extends: date_span
     
-  summary: Summary
+  summary: 
+    label: Summary
     type: textarea
     required: true
