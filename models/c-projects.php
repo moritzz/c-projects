@@ -37,7 +37,7 @@ class CProjectsPage extends ContaineristPage {
       ];
       foreach ($this->blueprint['fields']['projects']['fields']['category']['options'] as $key => $german) {
         $this->categories_table[$key] = [
-          'en' => titleCase($key),
+          'en' => ContaineristPage::titleCase($key),
           'de' => $german,
         ];
       }
