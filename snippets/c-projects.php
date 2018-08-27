@@ -6,6 +6,7 @@
         <?php else: ?>
           <h2>Latest Projects</h2>
         <?php endif; ?>
+        <?php snippet('c-project-categories'); ?>
         <?php
           $selector = $kirby->request()->get('category');
           

@@ -12,7 +12,6 @@
       <hr />
     </header>
     
-    <?php snippet('c-project-categories'); ?>
     <?php snippet('c-projects'); ?>
     
     <div class="text wrap">
