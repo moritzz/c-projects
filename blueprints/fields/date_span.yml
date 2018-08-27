@@ -7,4 +7,4 @@ fields:
   date_to:
     label: To
     type: date
-    help: Datumsspannen von unter einem Monat werden als DD.MM.YYYY - DD.MM.YYYY ausgegeben, darüber als MMMM YYYY - MMMM YYYYY, von exakt einem Jahr als YYYY, daruber als YYYY - YYYYY.r
+    help: Datumsspannen von unter einem Monat werden als DD.MM.YYYY - DD.MM.YYYY ausgegeben, darüber als MMMM YYYY - MMMM YYYYY, von exakt einem Jahr als YYYY, daruber als YYYY - YYYYY.
