@@ -1,12 +1,6 @@
     <section class="projects-section">
       
       <div class="text wrap">
-        <?php if ($site->language()->code() == 'de'): ?>
-          <h2>Projekte</h2>
-        <?php else: ?>
-          <h2>Latest Projects</h2>
-        <?php endif; ?>
-        <?php snippet('c-project-categories'); ?>
         <?php
           $selector = $kirby->request()->get('category');
           
@@ -23,7 +17,7 @@
             }
           ?>
         <?php else: ?>
-          <p class="result empty">
+          <p class="empty-result">
           <?php if ($site->language()->code() == 'de'): ?>
             Es wurden keine Projekte mit dieser Kategorie gefunden.
           <?php else: ?>

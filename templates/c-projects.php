@@ -1,7 +1,5 @@
 <?php snippet('header') ?>
   
-  <?= css('assets/plugins/c-projects/css/index.css') ?>
-  
   <main class="main" role="main">
     
     <header class="wrap">
@@ -12,6 +10,7 @@
       <hr />
     </header>
     
+    <?php snippet('c-project-categories'); ?>
     <?php snippet('c-projects'); ?>
     
     <div class="text wrap">

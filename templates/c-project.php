@@ -1,7 +1,5 @@
 <?php snippet('header') ?>
   
-  <?= css('assets/plugins/c-projects/css/index.css') ?>
-  
   <main class="main" role="main">
     
     <header class="wrap">
@@ -12,7 +10,9 @@
       <hr />
     </header>
     
-    <?php snippet('c-project', ['project' => $page]); ?>
+    <div class="text wrap">
+      <?php snippet('c-project', ['project' => $page]); ?>
+    </div>
     
     <div class="text wrap">
       <?= $page->text()->kirbytext() ?>
