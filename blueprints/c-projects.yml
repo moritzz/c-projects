@@ -13,8 +13,8 @@ fields:
     label: Intro
     type:  textarea
     
-  adapter:
-    label: Project origin
+  source:
+    label: Project source
     type: select
     required: true
     options:

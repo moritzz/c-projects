@@ -84,8 +84,8 @@ class CProjectsPage extends ContaineristPage {
   
   private function getProjects() {
     
-    if ($this->content()->adapter()->isNotEmpty()) {
-      $adapter = static::adapter($this->content()->adapter()->value);
+    if ($this->source()->isNotEmpty()) {
+      $adapter = static::adapter($this->source()->value);
     } else {
       $adapter = static::adapter('structure');
     }
