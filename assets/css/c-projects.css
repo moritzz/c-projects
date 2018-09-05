@@ -1,0 +1,12 @@
+nav.categories a.is-active {
+  border-bottom: 2px solid #261e66;
+}
+
+.projects-section {
+  padding-top: 0.75rem
+}
+
+.projects-section .empty-result {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
