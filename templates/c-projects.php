@@ -10,21 +10,23 @@
       <hr />
     </header>
     
-    <?php snippet('c-project-categories'); ?>
+    <?php
+      $selector = $kirby->request()->get('category');
+    
+      if (is_null($selector) || urldecode($selector) == '%all%') {
+        $selector = '%all%';
+        $projects = $page->projects();
+      } else {
+        $projects = $page->projects()->filterBy('category', urldecode($selector));
+      }
+    ?>
+    
+    <?php snippet('c-project-categories', ['projects' => $projects]); ?>
 
     <section class="projects-section">
       
       <div class="text wrap">
         <?php
-          $selector = $kirby->request()->get('category');
-          
-          if (is_null($selector) || urldecode($selector) == '%all%') {
-            $selector = '%all%';
-            $projects = $page->projects();
-          } else {
-            $projects = $page->projects()->filterBy('category', urldecode($selector));
-          }
-          
           if ($projects->count() > 0):
             foreach($projects->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $project) {
               snippet('c-project-teaser', ['project' => $project, 'selector' => $selector, 'source' => $page->source()->value]);

@@ -8,7 +8,9 @@
           if ($page->categories()->isNotEmpty()) {
             foreach($page->categories()->toStructure() as $key => $category) {
               
-              echo $page->t($key)->link($page->url() . '?category=' . urlencode($key), ['class' => ('selector' . (($key == $selector) ? ' is-active' : ''))]) . ' ';
+              if ($projects->filterBy('category' ,urldecode($key))->count() > 0) {
+                echo $page->t($key)->link($page->url() . '?category=' . urlencode($key), ['class' => ('selector' . (($key == $selector) ? ' is-active' : ''))]) . ' ';
+              }
               
             }            
           }
