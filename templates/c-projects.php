@@ -12,16 +12,17 @@
     
     <?php
       $selector = $kirby->request()->get('category');
-    
+      $all_projects = $page->projects();
+      
       if (is_null($selector) || urldecode($selector) == '%all%') {
         $selector = '%all%';
-        $projects = $page->projects();
+        $projects = $all_projects;
       } else {
         $projects = $page->projects()->filterBy('category', urldecode($selector));
       }
     ?>
     
-    <?php snippet('c-project-categories', ['projects' => $projects]); ?>
+    <?php snippet('c-project-categories', ['all_projects' => $all_projects]); ?>
 
     <section class="projects-section">
       
