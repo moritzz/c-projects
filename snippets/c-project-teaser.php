@@ -5,11 +5,16 @@
             <div class="project-intro">
               <?= $project->intro()->kirbytext(); ?>
             </div>
-            <div class="text">
-              <?php if ($project->text()->isNotEmpty()): ?>
+            <?php if ($project->text()->isNotEmpty()): ?>
+              <div class="text">
                 <?= $project->text()->kirbytext(); ?>
-              <?php endif; ?>
-            </div>
+              </div>
+            <?php endif; ?>
+            <?php if ($project->link()->isNotEmpty()): ?>
+              <div class="text">
+                <a href="<?= $project->link()->url(); ?>">Mehr im Web</a>
+              </div>
+            <?php endif; ?>
             <?php $category = $project->category()->value; if($selector == '%all%'): ?>
             <div class="category"><?= $page->t($category)->link($page->url() . '?category=' . urlencode($category)); ?></div>
             <?php endif; ?>
