@@ -25,9 +25,15 @@ fields:
   projects:
     label: Projects
     type: structure
-    entry: >
-      {{date_from}} - {{date_to}} : <strong>{{title}}</strong><br />
-      {{intro}}
+    entry: | 
+      <strong>{{title}}</strong> ({{category}})<br />
+      ({{date_from}} - {{date_to}}, {{where}})<br />
+      <br />
+      {{intro}}<br />
+      <br />
+      {{text}}<br />
+      <br />
+      <a href="{{link}}" target="preview">Link</a><br />
     fields:
       title:
         label: Title
@@ -44,6 +50,12 @@ fields:
         label: Intro
         type: textarea
         required: true
+      text:
+        label: Text
+        type: textarea
+      link:
+        label: Link
+        type: url
   
   text:
     label: Text
