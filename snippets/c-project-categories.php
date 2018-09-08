@@ -1,6 +1,6 @@
-    <section class="projects-navigation">
+    <section class="b-navigation">
       
-      <nav accesskey="p" class="text wrap categories">
+      <nav accesskey="p" class="text wrap e-categories">
         <?php 
           
           $selector = $kirby->request()->get('category');

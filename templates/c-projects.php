@@ -22,33 +22,37 @@
       }
     ?>
     
-    <?php snippet('c-project-categories', ['all_projects' => $all_projects]); ?>
-
-    <section class="projects-section">
+    <div class="mc-projects">
       
-      <div class="text wrap">
-        <?php
-          if ($projects->count() > 0):
-            foreach($projects->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $project) {
-              snippet('c-project-teaser', ['project' => $project, 'selector' => $selector, 'source' => $page->source()->value]);
-            }
-          ?>
-        <?php else: ?>
-          <p class="empty-result">
-          <?php if ($site->language()->code() == 'de'): ?>
-            Es wurden keine Projekte mit dieser Kategorie gefunden.
+      <?php snippet('c-project-categories', ['all_projects' => $all_projects]); ?>
+
+      <section class="projects-section">
+        
+        <div class="text wrap">
+          <?php
+            if ($projects->count() > 0):
+              foreach($projects->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $project) {
+                snippet('c-project-teaser', ['project' => $project, 'selector' => $selector, 'source' => $page->source()->value]);
+              }
+            ?>
           <?php else: ?>
-            We did not found any projects within this category.
+            <p class="empty-result">
+            <?php if ($site->language()->code() == 'de'): ?>
+              Es wurden keine Projekte mit dieser Kategorie gefunden.
+            <?php else: ?>
+              We did not found any projects within this category.
+            <?php endif; ?>
+            </p>
           <?php endif; ?>
-          </p>
-        <?php endif; ?>
+        </div>
+        
+      </section>
+      
+      <div class="e-text wrap">
+        <?= $page->text()->kirbytext() ?>
       </div>
       
-    </section>
-    
-    <div class="text wrap">
-      <?= $page->text()->kirbytext() ?>
-    </div>
+    </div data-item="mc-projects">
     
   </main>
 
