@@ -2,11 +2,23 @@
   
   <main class="main" role="main">
     
-    <header class="wrap">
+    <header class="b-header wrap">
       <h1><?= $page->title()->html() ?></h1>
-      <div class="intro text">
-        <?= $page->intro()->kirbytext() ?>
-      </div>
+        <?php if ($hero = $page->hero()->toFile()): ?>
+        <div class="e-hero">
+          <figure>
+            <img src="<?= $hero->resize(1200)->url(); ?>" alt="<?= $site->title()->html() . ' | ' . $page->title()->html(); ?>" />
+            <?php if ($hero->caption()->isNotEmpty()): ?>
+              <figcaption><?= $hero->caption()->html(); ?></figcaption>
+            <?php endif; ?>
+          </figure>
+        </div>
+      <?php endif; ?>
+      <?php if ($page->intro()->isNotEmpty()): ?>
+        <div class="e-intro intro text">
+          <?= $page->intro()->kirbytext() ?>
+        </div>
+      <?php endif; ?>
       <hr />
     </header>
     

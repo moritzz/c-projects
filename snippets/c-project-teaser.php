@@ -4,6 +4,16 @@
               <?= ($source == 'children') ? $project->title()->link() : $project->title()->html(); ?>
             </h3>
             <div class="b-body">
+              <?php if ($cover = $project->cover()->toFile()): ?>
+                <div class="e-cover">
+                  <figure>
+                    <img src="<?= $cover->resize(1200)->url(); ?>" alt="<?= $page->title()->html() . ' | ' . $project->title()->html(); ?>" />
+                    <?php if ($cover->caption()->isNotEmpty()): ?>
+                      <figcaption><?= $cover->caption()->html(); ?></figcaption>
+                    <?php endif; ?>
+                  </figure>
+                </div>
+              <?php endif; ?>
               <div class="e-intro">
                 <?= $project->intro()->kirbytext(); ?>
               </div>

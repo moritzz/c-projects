@@ -4,10 +4,21 @@ pages:
   template: c-project
   num: zero
 
+files:
+  sortable: true
+  fields:
+    caption:
+      label: Caption
+      type: text
+
 fields:
   title:
     label: Title
     type:  text
+
+  hero:
+    label: Hero Image
+    type: image
 
   intro:
     label: Intro
@@ -46,6 +57,9 @@ fields:
         type: text
       date_span: 
         extends: date_span
+      cover:
+        label: Cover Image
+        type: image
       intro:
         label: Intro
         type: textarea
