@@ -36,8 +36,8 @@
             <a href="<?= $page->link()->url(); ?>">Mehr im Web</a>
           </div>
         <?php endif; ?>
-        <?php $category = $project->category()->value;>
-        <nav class="e-tags"><?= $page->t($category)->link($page->parent()->url() . '?category=' . urlencode($category) . $project->title()->anchor()); ?></nav>
+        <?php $category = $page->category()->value; ?>
+        <nav class="e-tags"><?= $page->t($category)->link($page->parent()->url() . '?category=' . urlencode($category) . $page->title()->anchor()); ?></nav>
 
       </div>
 
