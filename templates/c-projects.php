@@ -43,7 +43,7 @@
         <div class="text wrap">
           <?php
             if ($projects->count() > 0):
-              foreach($projects->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $project) {
+              foreach($projects->sortBy('date_from', 'desc', 'date_to', 'desc') as $project) {
                 snippet('c-project-teaser', ['project' => $project, 'selector' => $selector, 'source' => $page->source()->value]);
               }
             ?>

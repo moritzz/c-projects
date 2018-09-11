@@ -2,7 +2,10 @@ title: Projects
 
 pages:
   template: c-project
-  num: zero
+  sort: date_from desc
+  num:
+    mode: date
+    field: date_from
 
 files:
   sortable: true
