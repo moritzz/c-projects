@@ -3,13 +3,15 @@ title: Project
 pages: false
 
 fields:
+
   title:
     label: Title
-    type:  text
+    type: text
+    required: true
     
   category:
     extends: category
-
+    
   where:
     label: Where
     type: text
@@ -17,11 +19,19 @@ fields:
   date_span: 
     extends: date_span
     
-  intro: 
+  cover:
+    label: Cover Image
+    type: image
+    
+  intro:
     label: Intro
     type: textarea
     required: true
-  
+    
   text:
     label: Text
     type: textarea
+    
+  link:
+    label: Link
+    type: url
