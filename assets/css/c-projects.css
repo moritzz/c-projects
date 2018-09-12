@@ -11,11 +11,19 @@
   border-bottom: 2px solid #261e66;
 }
 
-.mc-projects .c-project.is-teaser hr::after {
+.c-project.is-teaser hr::after {
   background: #eafded;
 }
 
-.mc-projects .c-project .e-tags {
+.c-project .e-cover a {
+  border-bottom: none;
+}
+
+.c-project .e-tags {
   margin-top: 0.75rem;
   font-size: 0.75rem;
+}
+
+.e-cover a {
+  border-bottom: none;
 }
