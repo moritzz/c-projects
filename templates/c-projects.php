@@ -4,7 +4,7 @@
     
     <header class="b-header wrap">
       <h1><?= $page->title()->html() ?></h1>
-        <?php if ($hero = $page->hero()->toFile()): ?>
+      <?php if ($hero = $page->hero()->toFile()): ?>
         <div class="e-hero">
           <figure>
             <img src="<?= $hero->resize(1200)->url(); ?>" alt="<?= $site->title()->html() . ' | ' . $page->title()->html(); ?>" />
