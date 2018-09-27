@@ -41,9 +41,12 @@ class CProjectsPage extends ContaineristPage {
           'de' => $german,
         ];
       }
-      $this->categories = new Field($this, 'categories', yaml::encode($this->categories_table));
+      $language = site()->language()->code();
+      $categories = new Field($this, 'categories', yaml::encode($this->categories_table));
+      $this->categories = $categories->toStructure()->sortBy($language);
     } else {
-      $this->categories = new Field($this, 'categories', []);
+      $categories = new Field($this, 'categories', []);
+      $this->categories = $categories->toStructure();
     }
     parent::__construct($parent, $dirname);
   }
