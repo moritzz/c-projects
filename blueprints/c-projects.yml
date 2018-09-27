@@ -2,7 +2,10 @@ title: Projects
 
 pages:
   template: c-project
-  num: zero
+  sort: date_from desc
+  num:
+    mode: date
+    field: date_from
 
 files:
   sortable: true
@@ -46,31 +49,39 @@ fields:
       <br />
       <a href="{{link}}" target="preview">Link</a><br />
     fields:
+    
       title:
         label: Title
         type: text
         required: true
+        
       category:
         extends: category
+        
       where:
         label: Where
         type: text
+        
       date_span: 
         extends: date_span
+        
       cover:
         label: Cover Image
         type: image
+        
       intro:
         label: Intro
         type: textarea
         required: true
+        
       text:
         label: Text
         type: textarea
+        
       link:
         label: Link
         type: url
-  
-  text:
-    label: Text
-    type:  textarea
+      
+      text:
+        label: Text
+        type:  textarea

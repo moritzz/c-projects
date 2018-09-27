@@ -4,7 +4,7 @@
     
     <header class="b-header wrap">
       <h1><?= $page->title()->html() ?></h1>
-        <?php if ($hero = $page->hero()->toFile()): ?>
+      <?php if ($hero = $page->hero()->toFile()): ?>
         <div class="e-hero">
           <figure>
             <img src="<?= $hero->resize(1200)->url(); ?>" alt="<?= $site->title()->html() . ' | ' . $page->title()->html(); ?>" />
@@ -43,7 +43,7 @@
         <div class="text wrap">
           <?php
             if ($projects->count() > 0):
-              foreach($projects->sortBy('date_from', 'asc', 'date_to', 'asc')->flip() as $project) {
+              foreach($projects->sortBy('date_from', 'desc', 'date_to', 'desc') as $project) {
                 snippet('c-project-teaser', ['project' => $project, 'selector' => $selector, 'source' => $page->source()->value]);
               }
             ?>
