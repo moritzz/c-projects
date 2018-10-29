@@ -28,23 +28,11 @@
   border-bottom: none;
 }
 
-/* The hero image */
 .c-cover .image {
-  
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  /* See inline styles */
-  
-  /* Set a specific height */
   height: 240px;
-  
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
 }
 
-/* Place text in the middle of the image */
 .c-cover .text {
   text-align: center;
   position: absolute;
@@ -52,4 +40,26 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+.c-cover.is-float.has-intro {
+  height: 480px;
+  width: 360px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.125rem;
+  display: inline-block;
+  float: left;
+}
+
+.e-intro.has-cover {
+  display: inline;
+}
+
+/* Clear fix and compensation for following hr element */
+
+.e-intro.has-cover:after {
+  content: "";
+  clear: both;
+  display: table;
+  margin-bottom: 1.5rem;
 }

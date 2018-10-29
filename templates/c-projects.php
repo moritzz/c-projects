@@ -1,22 +1,23 @@
 <?php snippet('header') ?>
   
+  <?php if ($page->cover_image()->isNotEmpty() && $page->cover_view() == 'hero'): ?>
+    <?php snippet('c-cover-hero'); ?>
+  <?php endif; ?>
+
   <main class="main" role="main">
-    
+        
     <header class="b-header wrap">
       <h1><?= $page->title()->html() ?></h1>
-      <?php if ($hero = $page->hero()->toFile()): ?>
-        <div class="e-hero">
-          <figure>
-            <img src="<?= $hero->resize(1200)->url(); ?>" alt="<?= $site->title()->html() . ' | ' . $page->title()->html(); ?>" />
-            <?php if ($hero->caption()->isNotEmpty()): ?>
-              <figcaption><?= $hero->caption()->html(); ?></figcaption>
-            <?php endif; ?>
-          </figure>
-        </div>
+      <?php if ($page->cover_image()->isNotEmpty() && $page->cover_view() == 'float'): ?>
+        <?php snippet('c-cover-float', ['has_intro' => $page->intro()->isNotEmpty()]); ?>
       <?php endif; ?>
       <?php if ($page->intro()->isNotEmpty()): ?>
-        <div class="e-intro intro text">
-          <?= $page->intro()->kirbytext() ?>
+        <div class="e-intro intro text <?= ($page->cover_image()->isNotEmpty()) ? 'has-cover' : ''; ?>">
+          <?php if ($page->cover_image()->isNotEmpty()): ?>
+            <?= $page->intro()->kirbytexter(); ?>
+          <?php else: ?>
+            <?= $page->intro()->kirbytext(); ?>
+          <?php endif; ?>
         </div>
       <?php endif; ?>
       <hr />

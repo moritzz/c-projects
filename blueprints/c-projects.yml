@@ -19,9 +19,7 @@ fields:
     label: Title
     type:  text
 
-  hero:
-    label: Hero Image
-    type: image
+  cover: cover
 
   intro:
     label: Intro
@@ -65,9 +63,7 @@ fields:
       date_span: 
         extends: date_span
         
-      cover:
-        label: Cover Image
-        type: image
+      cover: cover
         
       intro:
         label: Intro

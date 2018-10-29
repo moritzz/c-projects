@@ -1,0 +1,12 @@
+type: group
+fields:
+  cover_image: 
+    label: Cover Image
+    type: image
+  cover_view:
+    label: Cover View
+    type: radio
+    options:
+      hero: Hero
+      float: Float
+    default: hero
