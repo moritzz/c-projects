@@ -44,6 +44,7 @@
 
 .c-cover.is-float {
   height: 580px;
+  margin-bottom: 1.5rem;
 }
 
 @media all and (min-width: 49.750em) {
