@@ -7,6 +7,6 @@ fields:
     label: Cover View
     type: radio
     options:
-      hero: Hero
       float: Float
-    default: hero
+      hero: Hero
+    default: float
