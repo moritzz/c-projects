@@ -1,4 +1,4 @@
-<header class="wrap">
+<header class="b-header wrap">
   <h1><?= $page->title()->html() ?></h1>
   <?php if ($page->cover_image()->isNotEmpty() && $page->cover_view() == 'float'): ?>
     <?php snippet('c-cover-float', ['has_intro' => $page->intro()->isNotEmpty()]); ?>
