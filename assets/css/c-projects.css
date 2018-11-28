@@ -52,20 +52,29 @@
   color: white;
 }
 
-.c-cover.is-float {
-  height: 580px;
+.c-inline-cover {
+  width: 100%;
+}
+
+.c-float-cover {
+  display: inline-block;
   margin-bottom: 1.5rem;
+}
+
+.c-float-cover img {
+  width: 100%;
 }
 
 @media all and (min-width: 49.750em) {
   
-  .c-cover.is-float.has-intro {
-    height: 480px !important;
-    width: 360px !important;
-    margin-right: 0.75rem !important;
-    margin-bottom: .375rem;
-    display: inline-block;
+  .c-float-cover.has-intro {
     float: left;
+    margin-bottom: 0;
+  }
+  
+  .c-float-cover.has-intro img {
+    width: 360px;
+    margin-right: 0.75rem;
   }
   
   .e-intro.has-cover {

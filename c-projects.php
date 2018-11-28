@@ -18,6 +18,7 @@ $kirby->set('snippet', 'b-header', __DIR__ . '/snippets/b-header.php');
 $kirby->set('snippet', 'b-projects-headline', __DIR__ . '/snippets/b-projects-headline.php');
 $kirby->set('snippet', 'c-cover-float', __DIR__ . '/snippets/c-cover-float.php');
 $kirby->set('snippet', 'c-cover-hero', __DIR__ . '/snippets/c-cover-hero.php');
+$kirby->set('snippet', 'c-cover-inline', __DIR__ . '/snippets/c-cover-inline.php');
 $kirby->set('snippet', 'c-project-teaser', __DIR__ . '/snippets/c-project-teaser.php');
 
 

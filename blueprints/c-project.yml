@@ -5,6 +5,9 @@ pages: false
 files:
   sortable: true
   fields:
+    html_title:
+      label: Title
+      type: text
     caption:
       label: Caption
       type: text

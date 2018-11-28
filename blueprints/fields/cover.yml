@@ -5,9 +5,9 @@ fields:
     type: image
   cover_view:
     label: Cover View
-    type: radio
+    type: select
     options:
       hero: Hero
-      float: Float Left
+      float: Float
       inline: Inline
     default: float
