@@ -1,3 +1,8 @@
+.mc-projects {
+  background: #eafded;
+  padding-top: 2.25rem;
+}
+
 .mc-projects.is-teaser {
   padding-top: 0.75rem
 }
@@ -9,6 +14,11 @@
 
 .mc-projects .b-categories a.is-active {
   border-bottom: 2px solid #261e66;
+}
+
+.b-projects {
+  margin-top: 1.5rem;
+  padding-top: 0;
 }
 
 .c-project.is-teaser hr::after {

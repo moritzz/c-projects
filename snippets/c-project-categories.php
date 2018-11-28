@@ -1,6 +1,6 @@
-    <section class="b-navigation">
+    <section class="b-navigation wrap">
       
-      <nav accesskey="p" class="text wrap e-categories">
+      <nav accesskey="p" class="text e-categories">
         <?php 
           
           $selector = trim(urldecode($kirby->request()->get('category')));
@@ -17,6 +17,7 @@
           }
           
         ?>
+
       </nav>
-      
+            
     </section>

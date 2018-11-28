@@ -21,9 +21,11 @@ fields:
 
   cover: cover
 
-  intro:
-    label: Intro
-    type:  textarea
+  intro: intro
+  
+  projects_headline:
+    label: Projects Headline
+    type: text
     
   source:
     label: Project source
