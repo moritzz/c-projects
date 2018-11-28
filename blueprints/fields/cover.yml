@@ -4,7 +4,7 @@ fields:
     label: Cover Image
     type: image
   cover_view:
-    label: Cover View
+    label: Cover Type
     type: select
     options:
       hero: Hero
