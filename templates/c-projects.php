@@ -8,6 +8,10 @@
         
     <?php snippet('b-header'); ?>
     
+    <div class="e-text wrap">
+      <?= $page->text()->kirbytext() ?>
+    </div>
+
     <?php
       $selector = $kirby->request()->get('category');
       $all_projects = $page->projects();
@@ -47,10 +51,6 @@
         </div>
         
       </section>
-      
-      <div class="e-text wrap">
-        <?= $page->text()->kirbytext() ?>
-      </div>
       
     </div data-item="mc-projects">
     

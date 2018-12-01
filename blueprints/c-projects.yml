@@ -25,6 +25,10 @@ fields:
   cover: cover
 
   intro: intro
+
+  text:
+    label: Text
+    type:  textarea
   
   projects_headline:
     label: Projects Headline
