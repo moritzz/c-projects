@@ -27,10 +27,11 @@
                   <a href="<?= $project->link()->url(); ?>">Mehr im Web</a>
                 </div>
               <?php endif; ?>
-              <?php $category = $project->category()->value; if($selector == '%all%'): ?>
+              <?php $category = $project->category()->value; ?>
+              <?php if($selector == '%all%'): ?>
                 <nav class="e-tags"><?= $page->t($category)->link($page->url() . '?category=' . urlencode($category) . $project->title()->anchor()); ?></nav>
               <?php else: ?>
-                <nav class="e-tags"><?= str::link($page->url() . '?category=' . urlencode('%all%') . $project->title()->anchor(), 'Alle'); ?></nav>
+                <nav class="e-tags"><?= $page->t($category); ?>, <?= str::link($page->url() . '?category=' . urlencode('%all%') . $project->title()->anchor(), 'Alle zeigen'); ?></nav>
               <?php endif; ?>
             </div>
             
