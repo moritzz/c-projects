@@ -1,4 +1,4 @@
-    <section class="b-navigation wrap">
+<section class="b-navigation wrap">
       
       <nav accesskey="p" class="text e-categories">
         <?php 
@@ -10,7 +10,7 @@
             foreach($page->categories() as $key => $category) {
               
               if (!(is_null($key) || $key == '%all%') && $all_projects->filterBy('category', $key)->count() > 0) {
-                echo $page->t($key)->link($page->url() . '?category=' . urlencode($key), ['class' => ('selector' . (($key == $selector) ? ' is-active' : ''))]) . ' ';
+                echo $page->t($key)->link($page->url() . '?category=' . urlencode($key) . '#b-projects-headline', ['class' => ('selector' . (($key == $selector) ? ' is-active' : ''))]) . ' ';
               }
               
             }            
